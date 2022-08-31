@@ -28,13 +28,12 @@ export default function Todos() {
   useEffect(() => {
     checkToken();
     getToDoList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [todos]);
+  }, []);
 
   return (
     <main>
       <PageBlock>
-        <TodoList todos={todos} />
+        <TodoList todos={todos} getToDoList={getToDoList} />
         <TodoForm getToDoList={getToDoList} />
       </PageBlock>
     </main>

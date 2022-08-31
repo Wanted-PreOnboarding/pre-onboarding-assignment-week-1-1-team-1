@@ -7,6 +7,7 @@ interface PropsType {
   checkTodoId: number;
   curCheckState: boolean;
   setEditTodo: Dispatch<SetStateAction<number | undefined>>;
+  getTodoList: () => void;
 }
 
 export default function TodoUpdateForm({
@@ -14,6 +15,7 @@ export default function TodoUpdateForm({
   checkTodoId: id,
   curCheckState: isCompleted,
   setEditTodo,
+  getTodoList,
 }: PropsType) {
   const [editText, setEditText] = useState(todo);
 
@@ -31,7 +33,7 @@ export default function TodoUpdateForm({
     e.preventDefault();
     if (window.confirm('수정하시겠습니까?')) {
       const todo = editText;
-      Todo.updateTodo({ id, todo, isCompleted });
+      Todo.updateTodo({ id, todo, isCompleted }).then(() => getTodoList());
       setEditTodo(undefined);
     }
   };
