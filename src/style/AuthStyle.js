@@ -33,13 +33,6 @@ export const AuthInput = styled.input`
     `}
 `;
 
-// export const AuthGuide = styled.div`
-//   padding-left: 6px;
-//   margin-bottom: 26px;
-//   font-size: 14px;
-//   color: gray;
-// `;
-
 export const RBtnBox = styled.div`
   display: flex;
   justify-content: flex-end;
