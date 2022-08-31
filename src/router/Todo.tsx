@@ -28,6 +28,7 @@ export default function Todos() {
   useEffect(() => {
     checkToken();
     getToDoList();
+    // eslint-disable-next-line
   }, []);
 
   return (
