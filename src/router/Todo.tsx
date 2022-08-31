@@ -27,8 +27,7 @@ export default function Todos() {
   useEffect(() => {
     checkToken();
     getToDoList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [todos]);
+  }, []);
 
   return (
     <main
@@ -39,7 +38,7 @@ export default function Todos() {
       }}
     >
       <section style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <TodoList todos={todos} />
+        <TodoList todos={todos} getToDoList={getToDoList} />
         <TodoForm getToDoList={getToDoList} />
       </section>
     </main>

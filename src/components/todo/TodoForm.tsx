@@ -15,7 +15,7 @@ export default function TodoForm({ getToDoList }: PropsType) {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    Todo.createTodo(text);
+    Todo.createTodo(text).then(() => getToDoList());
     setText('');
     getToDoList();
   };

@@ -8,21 +8,22 @@ import { TodoType } from 'types/todo';
 
 interface PropsType {
   todos: TodoType[];
+  getToDoList: () => void;
 }
 
-export default function TodoList({ todos }: PropsType) {
+export default function TodoList({ todos, getToDoList }: PropsType) {
   const [editTodo, setEditTodo] = useState<number>();
 
   // todo를 삭제하는 함수
   const onDelete = (id: number) => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
-      Todo.deleteTodo(id);
+      Todo.deleteTodo(id).then(() => getToDoList());
     }
   };
 
   const onCheckTodo = (id: number, todo: string, isCompleted: boolean) => {
     isCompleted = !isCompleted;
-    Todo.updateTodo({ id, todo, isCompleted });
+    Todo.updateTodo({ id, todo, isCompleted }).then(() => getToDoList());
   };
 
   return (
@@ -73,6 +74,7 @@ export default function TodoList({ todos }: PropsType) {
                   checkTodoId={todo.id}
                   curCheckState={todo.isCompleted}
                   setEditTodo={setEditTodo}
+                  getTodoList={getToDoList}
                 />
               )}
             </div>
