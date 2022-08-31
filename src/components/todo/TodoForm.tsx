@@ -25,7 +25,11 @@ export default function TodoForm({ getToDoList }: PropsType) {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    Todo.createTodo(text).then(() => getToDoList());
+    Todo.createTodo(text)
+      .then(() => getToDoList())
+      .catch(err => {
+        alert('todo 생성에 실패했습니다.');
+      });
     setText('');
     getToDoList();
     setOpen(false);
