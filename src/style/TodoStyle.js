@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 ///@ TodoPage
 export const BottomBtn = styled.div`
@@ -26,7 +26,7 @@ export const BottomBtn = styled.div`
 `;
 
 ///@ TodoList
-export const TodoListBlock = styled.div`
+export const TodoListBlock = styled.article`
   flex: 1;
   padding: 20px 32px;
   padding-bottom: 48px;
@@ -48,7 +48,8 @@ export const TodoListText = styled.p`
 `;
 
 ///@ TodoItem
-export const CheckCircle = styled.div`
+export const CheckCircle = styled.button`
+  background-color: #fff;
   width: 32px;
   height: 32px;
   border-radius: 16px;
@@ -59,7 +60,7 @@ export const CheckCircle = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
-  ${(props) =>
+  ${props =>
     props.done &&
     css`
       border: 1px solid #38d9a9;
@@ -73,14 +74,14 @@ export const Text = styled.div`
   font-size: 20px;
   color: #495057;
   overflow: auto;
-  ${(props) =>
+  ${props =>
     props.done &&
     css`
       color: #ced4da;
     `}
 `;
 
-export const Edit = styled.div`
+export const Edit = styled.button`
   opacity: 0;
   display: flex;
   align-items: center;
@@ -96,7 +97,7 @@ export const Edit = styled.div`
   }
 `;
 
-export const Remove = styled.div`
+export const Remove = styled.button`
   opacity: 0;
   display: flex;
   align-items: center;
@@ -142,7 +143,10 @@ export const EditInput = styled.input`
   box-sizing: border-box;
 `;
 
-export const EditBtn = styled.div`
+export const EditBtn = styled.button`
+  outline: 0;
+  border: 0;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,7 +160,10 @@ export const EditBtn = styled.div`
     color: #20c997;
   }
 `;
-export const EditCancel = styled.div`
+export const EditCancel = styled.button`
+  outline: 0;
+  border: 0;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,7 +207,7 @@ export const CircleButton = styled.button`
 
   transition: 0.125s all ease-in;
 
-  ${(props) =>
+  ${props =>
     props.open &&
     css`
       background: #ff6b6b;
@@ -214,7 +221,7 @@ export const CircleButton = styled.button`
     `}
 `;
 
-export const InsertFormPostioner = styled.div`
+export const InsertFormPostioner = styled.article`
   width: 100%;
   bottom: 0;
   left: 0;

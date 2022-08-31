@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
 `;
 
-export const PageBlock = styled.div`
+export const PageBlock = styled.section`
   width: 512px;
   height: 768px;
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AuthForm from 'components/auth/AuthForm';
+import { PageBlock } from 'style/GlobalStyle';
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ export default function Auth() {
   }, []);
 
   return (
-    <main>
+    <PageBlock>
       <AuthForm />
-    </main>
+    </PageBlock>
   );
 }

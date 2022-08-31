@@ -45,7 +45,7 @@ export default function Todos() {
         <TodoForm getToDoList={getToDoList} />
       </PageBlock>
       <BottomBtn>
-        <Btn clasName="logoutBtn" onClick={logout}>
+        <Btn type="button" clasName="logoutBtn" onClick={logout}>
           로그아웃
         </Btn>
       </BottomBtn>
