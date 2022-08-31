@@ -21,9 +21,13 @@ export default function Todos() {
   };
 
   const getToDoList = () => {
-    Todo.getTodos().then((res: any) => {
-      setTodos(res.data);
-    });
+    Todo.getTodos()
+      .then((res: any) => {
+        setTodos(res.data);
+      })
+      .catch(err => {
+        alert('todo 가져오는데 실패했습니다.');
+      });
   };
 
   const logout = () => {

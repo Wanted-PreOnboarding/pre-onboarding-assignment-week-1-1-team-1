@@ -52,13 +52,21 @@ export default function AuthForm() {
     e.preventDefault();
 
     if (newAccount) {
-      Auth.signUp({ email, password }).then(res => {
-        navigate('/todo');
-      });
+      Auth.signUp({ email, password })
+        .then(res => {
+          navigate('/todo');
+        })
+        .catch(err => {
+          alert(JSON.parse(err.request.response).message);
+        });
     } else {
-      Auth.login({ email, password }).then(res => {
-        navigate('/todo');
-      });
+      Auth.login({ email, password })
+        .then(res => {
+          navigate('/todo');
+        })
+        .catch(err => {
+          alert('로그인에 실패했습니다.');
+        });
     }
   };
 

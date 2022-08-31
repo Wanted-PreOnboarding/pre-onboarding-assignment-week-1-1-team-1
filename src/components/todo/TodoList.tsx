@@ -20,7 +20,11 @@ export default function TodoList({ todos, getToDoList }: PropsType) {
   // todo를 삭제하는 함수
   const onDelete = (id: number) => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
-      Todo.deleteTodo(id).then(() => getToDoList());
+      Todo.deleteTodo(id)
+        .then(() => getToDoList())
+        .catch(err => {
+          alert('todo 삭제에 실패했습니다.');
+        });
     }
   };
 

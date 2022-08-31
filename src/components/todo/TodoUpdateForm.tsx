@@ -35,7 +35,11 @@ export default function TodoUpdateForm({
     e.preventDefault();
     if (window.confirm('수정하시겠습니까?')) {
       const todo = editText;
-      Todo.updateTodo({ id, todo, isCompleted }).then(() => getTodoList());
+      Todo.updateTodo({ id, todo, isCompleted })
+        .then(() => getTodoList())
+        .catch(err => {
+          alert('todo 수정에 실패했습니다.');
+        });
       setEditTodo(undefined);
     }
   };
