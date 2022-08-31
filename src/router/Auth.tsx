@@ -18,7 +18,7 @@ export default function Auth() {
   }, []);
 
   return (
-    <main style={{ margin: '0 auto', width: '80%', textAlign: 'center' }}>
+    <main>
       <AuthForm />
     </main>
   );

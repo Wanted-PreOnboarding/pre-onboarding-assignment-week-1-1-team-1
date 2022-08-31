@@ -3,6 +3,15 @@ import { useNavigate } from 'react-router-dom';
 
 import SignUpApi from 'api/auth/SignUpApi';
 import SignInApi from 'api/auth/SignInApi';
+import { HeadBlock, PageBlock } from 'style/GlobalStyle';
+import {
+  AuthFormStyle,
+  AuthInput,
+  AuthLabel,
+  LoginBtn,
+  RBtnBox,
+  RegisterBtn,
+} from 'style/AuthStyle';
 
 export default function AuthForm() {
   const [email, setEmail] = useState('');
@@ -62,44 +71,35 @@ export default function AuthForm() {
   }, [email, password]);
 
   return (
-    <article>
-      <h1>회원가입 or 로그인</h1>
-      <form onSubmit={onSubmit}>
-        <section>
-          <label htmlFor="email">이메일 : </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="이메일"
-            value={email}
-            onChange={onChangeEmail}
-            style={{ marginBottom: '10px', marginLeft: '14px' }}
-          />
-        </section>
+    <PageBlock>
+      <HeadBlock>
+        <h1>회원가입 or 로그인</h1>
+      </HeadBlock>
+      <AuthFormStyle onSubmit={onSubmit}>
+        <AuthLabel htmlFor="email">이메일</AuthLabel>
+        <AuthInput
+          type="email"
+          id="email"
+          placeholder="이메일"
+          value={email}
+          onChange={onChangeEmail}
+        />
 
-        <section>
-          <label htmlFor="password">비밀번호 : </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="비밀번호"
-            value={password}
-            onChange={onChangePassword}
-          />
-        </section>
+        <AuthLabel htmlFor="password">비밀번호</AuthLabel>
+        <AuthInput
+          type="password"
+          id="password"
+          placeholder="비밀번호"
+          value={password}
+          onChange={onChangePassword}
+        />
 
-        <section
-          style={{
-            display: 'flex',
-            marginTop: '10px',
-            justifyContent: 'space-evenly',
-          }}
-        >
-          {/* 이메일과 패스워드가 유효한지 확인 후 버튼을 누를 수 있습니다. */}
-          <input type="submit" onClick={onAccount} value="회원가입" disabled={!checkInput} />
-          <input type="submit" onClick={onLogIn} value="로그인" disabled={!checkInput} />
-        </section>
-      </form>
-    </article>
+        {/* 이메일과 패스워드가 유효한지 확인 후 버튼을 누를 수 있습니다. */}
+        <RBtnBox>
+          <RegisterBtn type="submit" onClick={onAccount} value="회원가입" disabled={!checkInput} />
+        </RBtnBox>
+        <LoginBtn type="submit" onClick={onLogIn} value="로그인" disabled={!checkInput} />
+      </AuthFormStyle>
+    </PageBlock>
   );
 }
