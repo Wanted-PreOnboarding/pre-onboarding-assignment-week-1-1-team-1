@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 
-import UpdateTodoApi from 'api/todo/UpdateTodoApi';
+import Todo from 'api/todo';
 
 interface PropsType {
   todo: string;
@@ -11,8 +11,8 @@ interface PropsType {
 
 export default function TodoUpdateForm({
   todo,
-  checkTodoId,
-  curCheckState,
+  checkTodoId: id,
+  curCheckState: isCompleted,
   setEditTodo,
 }: PropsType) {
   const [editText, setEditText] = useState(todo);
@@ -30,7 +30,8 @@ export default function TodoUpdateForm({
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (window.confirm('수정하시겠습니까?')) {
-      UpdateTodoApi({ checkTodoId, editText, curCheckState });
+      const todo = editText;
+      Todo.updateTodo({ id, todo, isCompleted });
       setEditTodo(undefined);
     }
   };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import CreateTodoApi from 'api/todo/CreateTodoApi';
+import Todo from 'api/todo';
 
 interface PropsType {
   getToDoList: () => void;
@@ -15,7 +15,7 @@ export default function TodoForm({ getToDoList }: PropsType) {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    CreateTodoApi({ text });
+    Todo.createTodo(text);
     setText('');
     getToDoList();
   };
