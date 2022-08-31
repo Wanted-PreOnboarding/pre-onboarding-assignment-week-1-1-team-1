@@ -1,6 +1,8 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import Todo from 'api/todo';
+import { EditBtn, EditCancel, EditForm, EditInput, TodoItemBlock } from 'style/TodoStyle';
+import { MdCheckCircle, MdCancel } from 'react-icons/md';
 
 interface PropsType {
   todo: string;
@@ -39,25 +41,16 @@ export default function TodoUpdateForm({
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
-      <form onSubmit={onSubmit}>
-        <input type="text" value={editText} onChange={onChangeText} />
-        <input type="submit" value="수정" style={{ margin: '0 10px' }} />
-      </form>
-      <button
-        onClick={onCancle}
-        style={{
-          border: '0',
-          cursor: 'pointer',
-          backgroundColor: 'transparent',
-        }}
-      >
-        ❌
-      </button>
-    </div>
+    <TodoItemBlock>
+      <EditForm>
+        <EditInput type="text" value={editText} onChange={onChangeText} />
+      </EditForm>
+      <EditBtn onClick={onSubmit}>
+        <MdCheckCircle />
+      </EditBtn>
+      <EditCancel onClick={onCancle}>
+        <MdCancel />
+      </EditCancel>
+    </TodoItemBlock>
   );
 }

@@ -5,6 +5,8 @@ import TodoList from 'components/todo/TodoList';
 import TodoForm from 'components/todo/TodoForm';
 
 import Todo from 'api/todo';
+import { PageBlock } from 'style/GlobalStyle';
+import { BottomBtn, Btn } from 'style/TodoStyle';
 
 export default function Todos() {
   const navigate = useNavigate();
@@ -24,23 +26,29 @@ export default function Todos() {
     });
   };
 
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    alert('로그아웃 되었습니다.');
+    navigate('/');
+  };
+
   useEffect(() => {
     checkToken();
     getToDoList();
+    // eslint-disable-next-line
   }, []);
 
   return (
-    <main
-      style={{
-        margin: '0 auto',
-        width: '80%',
-        textAlign: 'center',
-      }}
-    >
-      <section style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <main>
+      <PageBlock>
         <TodoList todos={todos} getToDoList={getToDoList} />
         <TodoForm getToDoList={getToDoList} />
-      </section>
+      </PageBlock>
+      <BottomBtn>
+        <Btn type="button" clasName="logoutBtn" onClick={logout}>
+          로그아웃
+        </Btn>
+      </BottomBtn>
     </main>
   );
 }
