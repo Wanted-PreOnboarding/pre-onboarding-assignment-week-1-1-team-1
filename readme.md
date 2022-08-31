@@ -1,3 +1,5 @@
+여건 브랜치에서 리드미를 수정 후 메인 브랜치로 머지 하겠습니다.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
