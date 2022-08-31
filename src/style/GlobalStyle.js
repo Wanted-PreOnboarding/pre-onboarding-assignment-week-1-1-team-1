@@ -45,6 +45,13 @@ export const HeadBlock = styled.div`
     color: #343a40;
   }
 
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    color: #343a40;
+  }
+
   .total {
     margin-top: 20px;
     color: #868e96;

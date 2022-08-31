@@ -5,6 +5,7 @@ import TodoList from 'components/todo/TodoList';
 import TodoForm from 'components/todo/TodoForm';
 
 import Todo from 'api/todo';
+import { PageBlock } from 'style/GlobalStyle';
 
 export default function Todos() {
   const navigate = useNavigate();
@@ -31,17 +32,11 @@ export default function Todos() {
   }, [todos]);
 
   return (
-    <main
-      style={{
-        margin: '0 auto',
-        width: '80%',
-        textAlign: 'center',
-      }}
-    >
-      <section style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <main>
+      <PageBlock>
         <TodoList todos={todos} />
         <TodoForm getToDoList={getToDoList} />
-      </section>
+      </PageBlock>
     </main>
   );
 }
