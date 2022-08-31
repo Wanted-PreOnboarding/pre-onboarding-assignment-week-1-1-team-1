@@ -6,7 +6,7 @@ import AuthForm from 'components/auth/AuthForm';
 export default function Auth() {
   const navigate = useNavigate();
   const checkToken = () => {
-    const token = localStorage.getItem('login-token');
+    const token = localStorage.getItem('accessToken');
     if (token) {
       navigate('/todo');
     }

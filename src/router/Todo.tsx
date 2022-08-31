@@ -4,23 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import TodoList from 'components/todo/TodoList';
 import TodoForm from 'components/todo/TodoForm';
 
-import GetTodoApi from 'api/todo/GetTodoApi';
+import Todo from 'api/todo';
 
-export default function Todo() {
+export default function Todos() {
   const navigate = useNavigate();
 
   const [todos, setTodos] = useState([]);
 
   const checkToken = () => {
-    const token = localStorage.getItem('login-token');
+    const token = localStorage.getItem('accessToken');
     if (!token) {
       navigate('/');
     }
   };
 
   const getToDoList = () => {
-    GetTodoApi().then(res => {
-      setTodos(res);
+    Todo.getTodos().then((res: any) => {
+      setTodos(res.data);
     });
   };
 

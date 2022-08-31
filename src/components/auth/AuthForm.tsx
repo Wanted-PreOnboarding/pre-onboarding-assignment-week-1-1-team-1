@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import SignUpApi from 'api/auth/SignUpApi';
-import SignInApi from 'api/auth/SignInApi';
+import Auth from 'api/auth';
 import { HeadBlock, PageBlock } from 'style/GlobalStyle';
 import {
   AuthFormStyle,
@@ -53,13 +52,11 @@ export default function AuthForm() {
     e.preventDefault();
 
     if (newAccount) {
-      SignUpApi({ email, password }).then(res => {
-        localStorage.setItem('login-token', res.access_token);
+      Auth.signUp({ email, password }).then(res => {
         navigate('/todo');
       });
     } else {
-      SignInApi({ email, password }).then(res => {
-        localStorage.setItem('login-token', res.access_token);
+      Auth.login({ email, password }).then(res => {
         navigate('/todo');
       });
     }

@@ -2,34 +2,34 @@ import { useState } from 'react';
 
 import TodoUpdateForm from 'components/todo/TodoUpdateForm';
 
-import DeleteTodoApi from 'api/todo/DeleteTodoApi';
-import CheckTodoApi from 'api/todo/CheckTodoApi';
+import Todo from 'api/todo';
 
-import { Todo } from 'types/todo';
+import { TodoType } from 'types/todo';
 
 interface PropsType {
-  todos: Todo[];
+  todos: TodoType[];
 }
 
 export default function TodoList({ todos }: PropsType) {
   const [editTodo, setEditTodo] = useState<number>();
 
   // todo를 삭제하는 함수
-  const onDelete = (deleteTodoId: number) => {
+  const onDelete = (id: number) => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
-      DeleteTodoApi({ deleteTodoId });
+      Todo.deleteTodo(id);
     }
   };
 
-  const onCheckTodo = (checkTodoId: number, todo: string, curCheckState: boolean) => {
-    CheckTodoApi({ checkTodoId, todo, curCheckState });
+  const onCheckTodo = (id: number, todo: string, isCompleted: boolean) => {
+    isCompleted = !isCompleted;
+    Todo.updateTodo({ id, todo, isCompleted });
   };
 
   return (
     <article style={{ width: '400px' }}>
       <h2>리스트</h2>
       {todos.length
-        ? todos.map((todo: Todo) => (
+        ? todos.map((todo: TodoType) => (
             <div key={todo.id}>
               {editTodo !== todo.id ? (
                 <ul>
