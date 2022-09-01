@@ -40,7 +40,7 @@ export default function AuthForm() {
   const validateInput = () => {
     const emailRegex = /[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+/gm;
 
-    if (emailRegex.test(email) && password.length >= 7) {
+    if (emailRegex.test(email) && password.length >= 8) {
       setCheckInput(true);
     } else {
       setCheckInput(false);
