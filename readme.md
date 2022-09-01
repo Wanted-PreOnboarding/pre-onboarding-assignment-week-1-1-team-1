@@ -19,7 +19,7 @@ todo폴더에는 todo가져오기, todo수정, todo삭제, todo만들기 axios�
 components 폴더
 /auth
 
-이메일과 패스워드를 입력받는 AuthForm 파일이있습니다.
+이메일과 패스워드를 입력받는 AuthForm 파일이 있습니다.
 
 /todo
 
