@@ -72,3 +72,7 @@ src
 # 배포 주소
 
 https://wanted-pre-onboarding-fe-6-1-1.vercel.app/
+
+# Best practice
+
+https://github.com/wanted-fe-6/wanted-pre-onboarding-fe-6-1-1/wiki
