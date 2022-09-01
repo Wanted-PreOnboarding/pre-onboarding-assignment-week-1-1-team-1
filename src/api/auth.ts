@@ -13,6 +13,11 @@ class Auth {
       email: email,
       password: password,
     });
+
+    if (res.status === 201) {
+      setAccessToken(res.data.access_token);
+    }
+
     return res;
   }
 
