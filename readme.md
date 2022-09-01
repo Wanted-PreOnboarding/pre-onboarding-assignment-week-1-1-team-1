@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# 🚀 프로젝트의 실행 방법
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+npm install
 
-## Available Scripts
+npm start
+```
 
-In the project directory, you can run:
+# 📚 폴더 구조 설명
+api 폴더
+/auth
 
-### `npm start`
+auth폴더 안에는 회원가입과 로그인과 관련된 axios코드들이 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+/todo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+todo폴더에는 todo가져오기, todo수정, todo삭제, todo만들기 axios코드가 있습니다.
 
-### `npm test`
+components 폴더
+/auth
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+이메일과 패스워드를 입력받는 AuthForm 파일이있습니다.
 
-### `npm run build`
+/todo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+새로운 todo를 작성받는 TodoForm이 있습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+todo를 받아와서 보여주는 TodoList가 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+todo를 업데이트 받는 수정 창인 TodoUpdateForm이 있습니다.
 
-### `npm run eject`
+router 폴더
+라우터 폴더에는 각각 하나의 페이지인 Todo파일과 Auth파일이 있습니다.
+types 폴더
+types 폴더에는 todo파일이 존재하는데 Todo객체의 타입과 update하는데 필요한
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+todo와 isCompleted타입이 존재합니다
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 🎄 tree
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+src
+ ┣ api
+ ┃ ┣ auth.ts
+ ┃ ┣ interceptor.ts
+ ┃ ┗ todo.ts
+ ┣ components
+ ┃ ┣ auth
+ ┃ ┃ ┗ AuthForm.tsx
+ ┃ ┗ todo
+ ┃ ┃ ┣ TodoForm.tsx
+ ┃ ┃ ┣ TodoList.tsx
+ ┃ ┃ ┗ TodoUpdateForm.tsx
+ ┣ router
+ ┃ ┣ Auth.tsx
+ ┃ ┗ Todo.tsx
+ ┣ style
+ ┃ ┣ AuthStyle.js
+ ┃ ┣ GlobalStyle.js
+ ┃ ┗ TodoStyle.js
+ ┣ types
+ ┃ ┗ todo.ts
+ ┣ utils
+ ┃ ┗ tokenProvider.ts
+ ┣ App.tsx
+ ┣ index.tsx
+ ┣ react-app-env.d.ts
+ ┣ reportWebVitals.ts
+ ┗ setupTests.ts
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# 배포 주소
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://wanted-pre-onboarding-fe-6-1-1.vercel.app/
